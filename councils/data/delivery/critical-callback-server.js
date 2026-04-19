@@ -1,21 +1,6 @@
 #!/usr/bin/env node
 "use strict";
 
-/**
- * critical-callback-server.js
- *
- * Lightweight HTTP server (127.0.0.1:9876) that handles Telegram
- * inline-button URL clicks for critical alerts — NO AI involved.
- *
- * Routes:
- *   GET /critical-fixed?id=ALERT_ID   → delete critical alert message + clear state
- *   GET /critical-remove?id=ALERT_ID  → same (remove without confirmation)
- *   GET /health                        → 200 OK
- *
- * Telegram "url" buttons open this URL in the user's browser when
- * clicked in Telegram Desktop on the same machine.
- */
-
 const http = require("node:http");
 const fs = require("node:fs");
 const path = require("node:path");
