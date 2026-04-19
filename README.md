@@ -52,12 +52,6 @@ Telegram
 
 - [Telegram channel structure](assets-github/tg.png)
 
-### Token Optimization Example
-
-Ветка `token-optimization` использовалась для публикации визуалов, оптимизации подачи и подготовки наглядных материалов для trading-сценариев.
-
-![Token Optimization Result](assets-github/tokens.png)
-
 ## Root Structure
 
 Перед схемой важно отметить ещё одну вещь: в этом workspace можно было вручную управлять тем, к чему бот имеет доступ внутри устройства.
