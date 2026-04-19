@@ -2,7 +2,7 @@
 
 const path = require("node:path");
 
-const ROOT = "/Users/dmitriy/openclaw";
+const ROOT = "~/openclaw";
 
 const profiles = {
   security: require(path.join(ROOT, "councils", "checks", "review-profiles", "security-council.profile.js")),
