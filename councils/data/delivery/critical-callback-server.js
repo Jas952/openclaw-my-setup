@@ -9,7 +9,7 @@ const { URL } = require("node:url");
 const PORT = Number(process.env.CRITICAL_CB_PORT || 9876);
 const HOST = "127.0.0.1";
 
-const OPENCLAW_ROOT = "/Users/dmitriy/openclaw";
+const OPENCLAW_ROOT = "~/openclaw";
 const CONFIG_PATH = path.join(process.env.HOME || "", ".openclaw", "openclaw.json");
 const CRITICAL_STATE = path.join(OPENCLAW_ROOT, "councils", "data", "state", "telegram-security-critical.json");
 const PID_FILE = path.join(OPENCLAW_ROOT, "councils", "data", "state", "critical-callback-server.pid");
