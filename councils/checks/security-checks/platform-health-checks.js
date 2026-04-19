@@ -5,7 +5,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const { spawnSync } = require("node:child_process");
 
-const DEFAULT_ROOT = "/Users/dmitriy/openclaw";
+const DEFAULT_ROOT = "~/openclaw";
 const CODE_EXT = new Set([".js", ".ts", ".mjs", ".cjs", ".sh", ".py"]);
 const SKIP_DIRS = new Set([".git", "node_modules", "dist", "build", "coverage", ".next", ".cache"]);
 
