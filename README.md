@@ -12,42 +12,9 @@
 
 ## Applied Stack
 
-Ниже показан прикладной стек этого workspace: какими языками собраны основные части проекта и на каких библиотеках держатся интерфейс, локальная knowledge-base, automation и служебные сценарии.
+Основной стек этого workspace собран на `TypeScript` и `JavaScript` с использованием `Node.js`, `React`, `Vite`, `Electron`, `SQLite`, `@zvec/zvec`, `@huggingface/transformers`, `better-sqlite3`, `Playwright` и `Google APIs` для UI, локальной knowledge-base, automation и backup-сценариев.
 
-```text
-Stack
-├── Languages
-│   ├── TypeScript       — основная часть UI, desktop-логики и прикладных инструментов
-│   ├── JavaScript       — runtime-скрипты, automation, ingest/query сценарии и служебные модули
-│   ├── Python           — отдельные backend/UI-сервисы и локальные вспомогательные процессы
-│   ├── SQL / SQLite     — локальное хранение knowledge-base, cron-логов и части service data
-│   └── Shell            — запуск, интеграция и системные сценарии на устройстве
-├── Runtime And Frameworks
-│   ├── Node.js          — основной runtime для модулей workspace
-│   ├── React           — интерфейсный слой UI
-│   ├── Vite            — сборка и dev-runtime для UI
-│   ├── Electron        — desktop-оболочка для локального запуска
-│   └── Flask           — отдельный Python backend-слой в office-ui направлении
-├── Interface Libraries
-│   ├── react / react-dom      — основа визуального интерфейса
-│   ├── xterm                  — встроенный терминальный слой внутри UI
-│   ├── xterm-addon-fit        — адаптация терминала под размер окна
-│   ├── node-pty               — подключение терминальных процессов к интерфейсу
-│   └── concurrently / wait-on — параллельный запуск dev-среды и ожидание сервисов
-├── Knowledge And Data
-│   ├── @zvec/zvec                 — векторное хранилище для локальной knowledge-base
-│   ├── @huggingface/transformers  — локальные embeddings и семантический анализ
-│   ├── better-sqlite3             — быстрый доступ к локальным SQLite-базам
-│   ├── pdf-parse                  — извлечение текста из PDF перед ingest
-│   └── Xenova/multilingual-e5-small — embedding-модель для multilingual retrieval
-├── Automation And Integrations
-│   ├── googleapis                — backup и интеграция с Google Drive
-│   ├── playwright                — browser automation и проверка страниц
-│   ├── @modelcontextprotocol/sdk — MCP-серверы и tool-интеграции
-│   └── zod                       — валидация структур данных и tool input/output
-└── Media And Rendering
-    └── sharp                     — генерация и рендеринг графических артефактов
-```
+Отдельно отмечу, что в работе над экосистемой я также использовал `Python` и `Go`: `Python` присутствует и в этом публичном репозитории как часть сервисных модулей, а `Go` использовался в связанных задачах вокруг проекта, хотя в текущем публичном snapshot он почти не представлен.
 
 ## Telegram Output
 
