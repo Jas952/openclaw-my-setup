@@ -5,7 +5,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const crypto = require("node:crypto");
 
-const OPENCLAW_ROOT = "/Users/dmitriy/openclaw";
+const OPENCLAW_ROOT = "~/openclaw";
 const CONFIG_PATH = path.join(process.env.HOME || "", ".openclaw", "openclaw.json");
 const STATE_DIR = path.join(OPENCLAW_ROOT, "councils", "data", "state");
 const MESSAGE_STATE = path.join(STATE_DIR, "telegram-security-message.json");
