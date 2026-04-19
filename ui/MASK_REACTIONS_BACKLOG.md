@@ -1,7 +1,7 @@
 # Mask Reactions Backlog
 
 Date: 2026-03-17  
-Scope: `beta/UI` visual behavior planning for the center mask ("agent personality")
+Scope: `UI` visual behavior planning for the center mask ("agent personality")
 
 ## Planned Reaction Modes
 

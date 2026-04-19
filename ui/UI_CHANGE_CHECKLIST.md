@@ -1,16 +1,101 @@
 # UI Change Checklist
 
 Date: 2026-03-17
-Target: `beta/UI`
+Target: `UI`
 
 - [x] Updated visual direction to a restrained Jarvis-like style with black/gray dominance.
 - [x] Reworked layout so the avatar block stays centered across screen resolutions.
-- [x] Reworked layout so microphone + text composer stays centered under the avatar.
-- [x] Reduced left thread panel footprint and made it compact.
+- [x] Reworked layout so microphone + text controls stay centered under the avatar.
+- [x] Removed left-side history panel.
+- [x] Removed always-visible on-screen chat history in center scene.
+- [x] Made text input panel toggle-based (`Open input` / `Hide input`) instead of always pinned.
 - [x] Added animated avatar behavior for `idle`, `listening`, `thinking`, `streaming`, `error`.
-- [x] Replaced vector redraw approach with image-based avatar component (`AgentAvatar`).
-- [ ] Put the exact original mask image file at `beta/UI/public/assets/agent-mask-original.jpg` (no edits to the image).
+- [x] Kept image-based avatar component (`AgentAvatar`) with no redraw of the mask.
+- [x] Restored the exact original mask image to `UI/public/assets/agent-mask-original.jpg` by extracting the attached image payload from local session logs.
+- [x] Removed the visual "image in black square" effect by generating an integrated transparent-mask asset for UI composition (`agent-mask-integrated.png`).
+- [x] Added avatar source fallback chain: integrated PNG -> original JPG.
+- [x] Removed visible "assistant" wording from avatar state labels.
+- [x] Simplified top corners: removed all corner metadata text chips; kept only gateway connection indicator.
+- [x] Added right-side floating dialogue window that opens on first sent prompt, shows only current UI dialogue thread, and supports continued input in-window.
+- [x] Added close-to-end-dialogue behavior for the right dialogue window (UI-only state reset; backend history remains intact).
+- [x] Upgraded adaptive monitor layout: avatar scene, dock, and dialogue panel scale/reflow across wide and narrow screen sizes.
+- [x] Added subtle animated cyber accents (cyan rings, traces, marker pulses, soft panel glow) inspired by HUD reference while preserving readability.
+- [x] Stabilized gateway handshake flow in `gatewayClient`: ignored stale socket close events during reconnect, added `connect.challenge` timeout, and improved disconnect diagnostics (`code/reason/url`) including explicit hint to run `openclaw gateway` when endpoint is unreachable.
+- [x] Added new motherboard-inspired monochrome layer set from latest reference: global PCB background traces, center chip-matrix around avatar, animated route/node pulses, and updated dock/dialog controls to a black/gray hardware aesthetic.
+- [x] Removed center-overload around mask: no center overlays/rings/chip-cluster and no translucent center backplate; mask remains primary focal element.
+- [x] Replaced rotating oval language with angular corner + signal accents on avatar (no orbital ellipse around center mask).
+- [x] Reworked bottom controls into lightweight functional links (`Voice`, `Text Query`, `Stop`) without circular/rectangular button blocks.
+- [x] Removed first text popover UI path; text interaction now opens only right-side dialogue panel.
+- [x] Disabled center shift on dialogue open; right dialogue panel now appears without moving core interface left.
+- [x] Tightened monitor-relative layout behavior: connection indicator aligned to actual screen edge padding and right panel width adjusted for non-overlapping composition.
+- [x] Added persistent planning note for future mask reaction modes in `MASK_REACTIONS_BACKLOG.md`.
+- [x] Removed avatar frame accents around center photo (`agent-avatar-corners`/signal) to keep mask identity clean and unobstructed.
+- [x] Removed rectangular status caption under mask (including visible `Standby` block) to avoid layout intersection and visual noise.
+- [x] Added lightweight reactive mask highlight for text interaction state (`textActive`) without center overlays.
+- [x] Added stricter peripheral tech styling (edge HUD chips + matrix rain + subtle glow pulses) on screen edges only, keeping center uncluttered.
+- [x] Added persistent MCP UI design profile at `mcp/UI_DESIGN_CONTEXT.json` with required tags (`coding`, `jarvis`, `program`, `matrix`, `chips`, `podsvetka`) and image references from `/UI/image`.
+- [x] Updated typography preference stack toward reference style (`Rajdhani`, `Orbitron`) based on `image/70889830fdd02e8100b767844381829e.jpg`.
+- [x] Replaced disliked side HUD elements with softer ambient layers: chip clusters, bonding-wire style links, energy-flow traces, and semi-transparent terminal/code ribbons.
+- [x] Kept added visual density outside the center mask zone and tuned opacity for “visible but not dominant” peripheral detail.
+- [x] Expanded MCP design context with `bonding_wires`, `energy_flow`, and `terminal_process` guidance plus explicit ban on animated side pillars.
+- [x] Replaced lower wide-running code text with a compact corner process indicator that stays inside its corner bounds and cycles with smooth fade transitions.
+- [x] Removed descending scan-rectangle effect above the mask to keep the center calm during text interaction and response states.
+- [x] Locked Electron zoom and fixed the desktop UI scale so the main scene no longer resizes through browser-style zoom gestures/shortcuts.
+- [x] Repositioned the bottom dock as an absolute bottom layer so opening or using `Text Query` does not nudge the center mask.
+- [x] Removed idle vertical drift from the mask to keep avatar placement stable during text interaction.
+- [x] Reworked the southeast process indicator into a 3-line vertical ticker with bottom-to-top shutter motion and soft transparency fade.
+- [x] Removed the visible background plate from the `Connected` indicator, leaving only a lightweight status line.
+- [x] Added a left-bottom live gateway terminal stream fed by actual gateway transport/RPC/event telemetry, capped to 20 lines with hidden-scroll manual browsing.
+- [x] Strengthened zoom prevention in both Electron shell and renderer (`cmd/ctrl +/-/0`, wheel-zoom, gesture zoom).
+- [x] Switched `gateway.stream` from client-side telemetry imitation to real `~/.openclaw/logs/gateway.log` tail via preload bridge, keeping the latest 20 gateway lines visible.
+- [x] Added adjacent `gateway.error` callout sourced from `~/.openclaw/logs/gateway.err.log`, rendering the latest error line in full exact form.
+- [x] Made the southeast process ticker loop seamlessly by animating over a duplicated item cycle with no visible hard cut.
+- [x] Upgraded peripheral motherboard styling with more bonding traces, moving energy fireflies, smoother glow spread, and moved the southwest chip cluster away from the `gateway.stream` area.
+- [x] Added archive fallback for `gateway.stream` / `gateway.error` so the UI still shows the latest available gateway lines when current log files are empty.
+- [x] Replaced dot-like “fireflies” with full-lane trace sweeps so energy now reads as continuous glow traveling along the conductors.
+- [x] Reworked chip rectangles into more PCB-like modules using chamfered silhouettes, inner pad grids, connector teeth, and cleaner motherboard-style edge treatment from the design references.
+- [x] Shortened visible `gateway.stream` rows by stripping duplicated ISO timestamps from the message column while preserving the compact time rail on the left.
+- [x] Replaced the always-open error callout with a semi-transparent vertical blinking error beacon beside `gateway.stream`; full error text now opens on demand.
+- [x] Rebuilt peripheral chip clusters toward more realistic PCB hardware (board slabs, sockets, modules, via fields, chiplets) inspired by `image/a447fea611938aedc3f67de9f9a00baa.jpg`.
+- [x] Reduced bonding-wire density and switched energy motion to seamless repeating bands so traces loop organically instead of hitting a visible end.
+- [x] Replaced the old motherboard-rectangle ambient layer with a new preset-driven cyan/blue/teal HUD background derived from `/image/presets`, keeping the center mask untouched.
+- [x] Added custom SVG ambient assets (`ambient-trace-field.svg`, `ambient-bonding-sheet.svg`) so the new background borrows trace/bonding structure from the presets without pasting stock photos directly into the UI.
+- [x] Removed the remaining inactive CSS from the previous PCB ambient concept to avoid mixing two different background systems.
+- [x] Replaced corner-scattered preset composition with a single full-scene preset layer centered behind the mask, preserving the central clean zone.
+- [x] Reverted palette from cyan-heavy to black/gray monochrome and tuned global contrast so the UI no longer looks bright/washed.
+- [x] Rebuilt background geometry from `image/presets/Screenshot 2026-03-17 at 20.12.42.png` into `preset-core-rebuilt.svg`, removing stock markers/watermarks by reconstruction.
+- [x] Removed the `scene-preset-core` SVG background layer and deleted `public/assets/preset-core-rebuilt.svg` per latest UI rollback request.
+- [x] Reworked `gateway.error` into a clearer status control (`No Error`/`Error`) with a stable click target and explicit error text reveal panel.
+- [x] Added `Full` action near `gateway.stream` and implemented fullscreen log viewer with non-truncated raw lines plus inline `gateway.error` section.
+- [x] Increased preload log snapshot depth (`gateway.log` 220 lines, `gateway.err.log` 40 lines) so fullscreen view has extended context.
+- [x] Fixed clickability regression for both `gateway.error` and `Full` controls by raising interactive z-layer and disabling pointer capture on decorative terminal lines.
+- [x] Restored standing vertical `gateway.error` rectangle without text label; click now opens error text panel on the right.
+- [x] Switched gateway log source to current live files only (`~/.openclaw/logs/gateway.log` and `gateway.err.log`) so `Full` reflects exact latest runtime lines without archive fallback bleed.
+- [x] Added stale-error suppression for `gateway.error`: the vertical beacon now appears only for fresh stderr updates, preventing old `libc++abi` leftovers from showing as active errors.
+- [x] Redesigned `gateway.error` trigger to a clean standing rectangle with centered red strip (no top icon), aligned to the same contour language as other UI controls.
+- [x] Kept error detail reveal as a separate right-side panel in the same area, opened by clicking the vertical error rectangle.
+- [x] Added `Permissions` UI control button in the HUD to open/close a dedicated personal-permissions panel.
+- [x] Added read-only permissions panel for `personal` with full core tool ID list and default `ON` state visualization (derived from `tools.allow: ["*"]`).
+- [x] Added hover/focus tooltip on each permission item with English description of what that permission does.
+- [x] Added `Esc` keyboard close behavior for the permissions panel.
+- [x] Reworked permissions hover interaction: permission id now morphs into a terminal-style typewriter line with the English description in-place.
+- [x] Made `Dialogue` panel draggable by its top header area and persisted last dragged position across close/reopen (`Text Query` opens at last position).
+- [x] Added top-level section switcher with `Personal` and `Library` tabs so new areas open as separate UI sections.
+- [x] Added preload bridge `openclawLibraryBridge.getLibrarySnapshot()` to read memory-kb data from `~/.openclaw/knowledge-base/data/knowledge.db` (entries + chunks) in read-only mode.
+- [x] Added dedicated `Library` page that shows saved memory-kb articles/docs with metadata (`type`, `source`, `createdAt`, `chunkCount`) and expandable chunk previews.
+- [x] Added `Library` filter by title/source/tags and manual refresh action for pulling latest saved memory-kb records.
+- [x] Reworked `Library` data contract to literature-first format `{title, source, description}` where description is derived from first RAG chunk text (`chunk_index = 0`).
+- [x] Removed `entries/chunks` UI emphasis in `Library`; list now renders saved literature cards with title, source link, and short description.
+- [x] Replaced `Library` filter with chat-style matcher workflow: prompt submission now performs local relevance matching and highlights suitable literature in the list.
+- [x] Added prompt suggestion hints under `Library` chat input and explicit “not found” feedback when no matching literature exists.
+- [x] Removed right-side library chat-log placeholder area and kept only a single prompt input area beneath the literature list, with prompt tips directly below it.
+- [x] Added list-scan animation for library matching: after prompt submit, UI iterates through literature rows, then highlights final matches.
+- [x] Removed preload dependency on native `better-sqlite3` for library reads and switched to `sqlite3` CLI read-only queries (`mode=ro&immutable=1`) to avoid Node/Electron module ABI mismatch.
+- [x] Fixed `gateway.stream` source drift: preload now auto-detects active log writers from both `~/.openclaw/logs/gateway.log` and `/tmp/openclaw/openclaw-*.log`, then merges latest lines.
+- [x] Added JSONL gateway log normalization (for `/tmp/openclaw/openclaw-YYYY-MM-DD.log`) so structured runtime records render as readable stream lines (`[subsystem] message`) with fresh error extraction.
 
 Notes:
-- Current UI expects the original image file at `/beta/UI/public/assets/agent-mask-original.jpg`.
-- If the image is missing, UI shows a fallback placeholder message instead of crashing.
+- Text input now appears only in the right `Dialogue` panel (opened by `Text Query`).
+- Mic remains push-to-talk and works even when the dialogue panel is closed.
+- If the mask file is missing, UI still shows a safe fallback placeholder instead of crashing.
+- Right dialogue panel transforms into a bottom sheet on narrow screens.

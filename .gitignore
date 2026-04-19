@@ -58,14 +58,14 @@ councils/data/telegram/
 beta/coinglass-large-orderbook-test/output/
 core/model-usage-tracker/reports/
 core/model-usage-tracker/state.json
-beta/UI/image/
-beta/UI/mcp/
-beta/UI/src/**
-!beta/UI/src/
-!beta/UI/src/README.md
-beta/UI/scripts/**
-!beta/UI/scripts/
-!beta/UI/scripts/README.md
+UI/image/
+UI/mcp/
+UI/src/**
+!UI/src/
+!UI/src/README.md
+UI/scripts/**
+!UI/scripts/
+!UI/scripts/README.md
 
 
 # Python / JS caches

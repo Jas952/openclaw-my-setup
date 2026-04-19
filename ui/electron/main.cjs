@@ -64,7 +64,7 @@ function buildMissingRendererPage() {
     "<body style='background:#050608;color:#f5f7fa;font-family:system-ui;padding:32px'>",
     `<h1>${APP_NAME}</h1>`,
     "<p>Renderer build not found.</p>",
-    "<p>Run <code>npm install</code> and <code>npm run build</code> inside <code>beta/UI</code>.</p>",
+    "<p>Run <code>npm install</code> and <code>npm run build</code> inside <code>UI</code>.</p>",
     "</body></html>",
   ].join("");
 }

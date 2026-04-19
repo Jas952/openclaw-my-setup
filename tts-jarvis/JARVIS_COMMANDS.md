@@ -2,7 +2,7 @@
 
 Локальные команды Jarvis живут в:
 
-`beta/UI/src/lib/jarvisCommands.ts`
+`UI/src/lib/jarvisCommands.ts`
 
 ## Как это работает
 
@@ -16,7 +16,7 @@
 
 ## Как добавить новую команду
 
-1. Открой `beta/UI/src/lib/jarvisCommands.ts`.
+1. Открой `UI/src/lib/jarvisCommands.ts`.
 2. Добавь новый объект в массив `jarvisResolvers`.
 3. Заполни:
    - `id`
@@ -69,7 +69,7 @@
 
 Можно назначить свой клип на конкретный `command.id` без TTS:
 
-1. Положи файл в `beta/UI/public/audio/jarvis-custom/`.
+1. Положи файл в `UI/public/audio/jarvis-custom/`.
 2. Имя файла должно совпадать с `command.id`:
    - `jarvis-help.mp3` или `jarvis-help.wav`
    - `jarvis-capabilities.mp3` или `jarvis-capabilities.wav`
