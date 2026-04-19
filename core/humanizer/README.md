@@ -105,22 +105,3 @@ node /Users/dmitriy/openclaw/tools/humanizer/humanizer.test.js
 | `hedge_somewhat` | "somewhat " | *(удаляется)* |
 
 ---
-
-## Как синхронизировать изменения
-
-После редактирования конфига или кода — скопировать изменённые файлы:
-
-```bash
-# Обновить установленный плагин из рабочей директории
-cp /Users/dmitriy/openclaw/tools/humanizer/core.js ~/.openclaw/extensions/humanizer/
-cp /Users/dmitriy/openclaw/tools/humanizer/humanizer.config.json ~/.openclaw/extensions/humanizer/
-
-# Обновить конфиг openclaw.json (если меняешь параметры через humanizer.config.json)
-# openclaw plugin config set humanizer <параметр> <значение>
-```
-
-> **Или** можно заменить `~/.openclaw/extensions/humanizer` симлинком на эту папку:
-> ```bash
-> rm -rf ~/.openclaw/extensions/humanizer
-> ln -s /Users/dmitriy/openclaw/tools/humanizer ~/.openclaw/extensions/humanizer
-> ```
