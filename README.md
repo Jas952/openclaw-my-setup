@@ -50,7 +50,9 @@ Telegram
 
 ### Telegram Screenshots
 
--<img width="657" height="493" alt="Снимок экрана 2026-04-19 в 20 12 02" src="https://github.com/user-attachments/assets/b1435cb0-cf06-4f7d-8bad-518eda4e3c66" />
+- скриншоты ответов бота;
+- скриншоты отдельных веток;
+- примеры рабочих публикаций и реальных диалогов.
 
 ## Root Structure
 
@@ -157,10 +159,12 @@ UI состоит из нескольких понятных слоёв:
 
 ### UI Screenshots
 
-- общий вид UI;
-- отдельные детали интерфейса;
-- примеры разных состояний оболочки;
-- отдельный скрин вкладки `Library`, связанной с knowledge-base.
+![OpenClaw UI Main](assets-github/ui/main.jpg)
+
+- [UI main view](assets-github/ui/ui_main.jpg)
+- [UI secondary view](assets-github/ui/ui_main2.jpg)
+- [UI logs panel](assets-github/ui/logs.jpg)
+- [UI Library / knowledge-base tab](assets-github/ui/knowledge-base.jpg)
 
 ## Bot Overview
 
