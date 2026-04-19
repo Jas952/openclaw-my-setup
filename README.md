@@ -50,9 +50,7 @@ Telegram
 
 ### Telegram Screenshots
 
-- скриншоты ответов бота;
-- скриншоты отдельных веток;
-- примеры рабочих публикаций и реальных диалогов.
+- [Telegram channel structure](assets-github/tg.png)
 
 ## Root Structure
 
@@ -108,13 +106,12 @@ openclaw/
 │   ├── knowledge-base/     — локальная knowledge base, ingest и query-логика
 │   ├── model-usage-tracker/— трекинг использования моделей и отчетность
 │   └── office-ui/          — отдельный вложенный UI/desktop-проект
+├── assets-github/           — скриншоты и изображения для GitHub-страницы репозитория
 ├── councils/                — проверки, security-review логика и контроль качества
 │   ├── checks/             — профили проверок и security-check сценарии
 │   ├── data/               — evidence, delivery, reports и runtime-артефакты
 │   ├── engine/             — движок запуска советов, проверок и orchestration
 │   └── scripts/            — служебные скрипты для council-задач
-├── docs/                    — GitHub-материалы, черновики и сопроводительная документация
-│   └── github/             — тексты, структура и ассеты для GitHub-публикации
 ├── infrastructure/          — указатель на внешний инфраструктурный слой OpenClaw
 │   └── README.md           — пояснение, что исходный bundle вынесен из публичной части
 ├── skills/                  — локальные skill-расширения и инструкции
