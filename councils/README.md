@@ -36,19 +36,9 @@ councils/
 4. Результат сохраняется как machine-readable report.
 5. При необходимости отчёт отправляется дальше в Telegram или другой operational-слой.
 
-## Что получается на выходе
-
 Отчеты сохраняются в виде:
 
 - `councils/data/reports/<profile>/latest.json`
 - `councils/data/reports/<profile>/<profile>-<timestamp>.json`
 
-Внутри таких отчетов обычно есть:
 
-- `reportFormatVersion`
-- структурированные `headings`
-- `recommendations[]`
-- `references[]` с привязкой к `path:line`
-- `evidenceIndex[]`
-
-Такой формат удобен и человеку, и автоматике: отчёт можно читать глазами, а можно использовать как структурированный источник для дальнейшего анализа.
