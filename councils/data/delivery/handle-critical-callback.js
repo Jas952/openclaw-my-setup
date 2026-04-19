@@ -1,20 +1,10 @@
 #!/usr/bin/env node
 "use strict";
 
-/**
- * handle-critical-callback.js ALERT_ID
- *
- * Called by the tests agent when it receives a critical_fixed: or
- * critical_remove: Telegram callback. Deletes the critical alert
- * message from Telegram and clears the state file.
- *
- * Usage: node handle-critical-callback.js CRIT-2026-02-20-abc123
- */
-
 const fs = require("node:fs");
 const path = require("node:path");
 
-const OPENCLAW_ROOT = "/Users/dmitriy/openclaw";
+const OPENCLAW_ROOT = "~/openclaw";
 const CONFIG_PATH = path.join(process.env.HOME || "", ".openclaw", "openclaw.json");
 const CRITICAL_STATE = path.join(OPENCLAW_ROOT, "councils", "data", "state", "telegram-security-critical.json");
 
