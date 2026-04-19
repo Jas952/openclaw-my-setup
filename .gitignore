@@ -12,7 +12,8 @@ workspaces/
 core/office-ui/
 tools/symphony/.runtime/
 extracted/
-openclaw-2026.3.13
+infrastructure/.DS_Store
+infrastructure/openclaw-2026.3.13/
 openclaw_x/
 beta/openclaw_x/
 
