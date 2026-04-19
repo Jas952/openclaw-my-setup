@@ -1,0 +1,9 @@
+{
+  "name": "cron-log",
+  "version": "1.0.0",
+  "description": "Centralized SQLite cron job logger",
+  "private": true,
+  "dependencies": {
+    "better-sqlite3": "^9.4.3"
+  }
+}

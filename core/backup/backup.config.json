@@ -1,0 +1,23 @@
+{
+  "_comment": "Backup configuration. Edit scan paths to add new locations.",
+
+  "scanPaths": [
+    "~/.openclaw",
+    "~/clawd"
+  ],
+
+  "excludePatterns": [
+    "browser/",
+    "node_modules/",
+    ".Trash",
+    "Caches"
+  ],
+
+  "gDriveFolderName": "OpenClaw Backups",
+
+  "retentionCount": 7,
+
+  "tempDir": "/tmp/openclaw-backup",
+
+  "telegramChatId": "455103738"
+}

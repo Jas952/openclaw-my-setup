@@ -1,0 +1,7 @@
+{
+  "dataDir": "~/.openclaw/knowledge-base/data",
+  "model": "Xenova/multilingual-e5-small",
+  "embeddingDim": 384,
+  "chunkSize": 500,
+  "chunkOverlap": 50
+}

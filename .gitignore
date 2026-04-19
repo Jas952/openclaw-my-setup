@@ -1,0 +1,74 @@
+# OS / editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Local git repositories embedded in the workspace
+**/.git/
+.claude/
+.playwright-cli/
+workspaces/
+core/office-ui/
+tools/symphony/.runtime/
+extracted/
+infrastructure/
+openclaw_x/
+beta/openclaw_x/
+
+# Dependencies
+**/node_modules/
+.venv/
+**/.venv/
+
+# Build artifacts
+dist/
+build/
+coverage/
+.next/
+.turbo/
+target/
+
+# Runtime state
+logs/
+tmp/
+temp/
+.cache/
+*.log
+*.pid
+*.sqlite
+*.sqlite3
+*.db
+
+# Local secrets and env files
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+
+# Workspace-specific generated data
+tools/trading/
+tools/hyperliquid-cli/
+councils/data/reports/
+councils/data/state/
+councils/data/telegram/
+beta/coinglass-large-orderbook-test/output/
+core/model-usage-tracker/reports/
+core/model-usage-tracker/state.json
+beta/UI/image/
+beta/UI/mcp/
+beta/UI/src/**
+!beta/UI/src/
+!beta/UI/src/README.md
+beta/UI/scripts/**
+!beta/UI/scripts/
+!beta/UI/scripts/README.md
+
+
+# Python / JS caches
+__pycache__/
+*.pyc
+*.pyo
+*.pyd

@@ -1,0 +1,15 @@
+{
+  "name": "openclaw-backup",
+  "version": "1.0.0",
+  "description": "Automated encrypted SQLite backup to Google Drive with Telegram alerts",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "backup": "node backup.js",
+    "restore": "node restore.js",
+    "auth": "node auth-setup.js"
+  },
+  "dependencies": {
+    "googleapis": "^144.0.0"
+  }
+}

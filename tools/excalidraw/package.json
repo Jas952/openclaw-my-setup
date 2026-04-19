@@ -1,0 +1,9 @@
+{
+  "name": "excalidraw-render",
+  "version": "1.0.0",
+  "description": "Render Excalidraw JSON diagrams to PNG",
+  "private": true,
+  "dependencies": {
+    "sharp": "^0.33.3"
+  }
+}

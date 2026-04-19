@@ -1,0 +1,19 @@
+{
+  "name": "knowledge-base",
+  "version": "1.0.0",
+  "description": "Local RAG knowledge base using zvec + HuggingFace local embeddings",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "ingest": "node ingest.js",
+    "query": "node query.js",
+    "list": "node list.js",
+    "delete": "node delete.js"
+  },
+  "dependencies": {
+    "@zvec/zvec": "latest",
+    "@huggingface/transformers": "^3.3.0",
+    "better-sqlite3": "^9.4.3",
+    "pdf-parse": "^1.1.1"
+  }
+}

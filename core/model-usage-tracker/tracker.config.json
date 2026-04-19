@@ -1,0 +1,12 @@
+{
+  "logDir": "/tmp/openclaw",
+  "storagePath": "~/clawd/data/model-usage.jsonl",
+  "statePath": "./state.json",
+  "costsPath": "./costs.json",
+  "workspacesBase": "/Users/dmitriy/openclaw/workspaces",
+  "scanDays": 8,
+  "telegramChatId": "-1003713665447",
+  "telegramThreadId": 8,
+  "timezone": "Europe/Moscow",
+  "weeklyResetDay": 0
+}

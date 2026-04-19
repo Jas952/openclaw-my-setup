@@ -1,0 +1,48 @@
+{
+  "_comment": "Humanizer plugin configuration. Edit this file to tune behavior.",
+  "_docs": {
+    "channels": "List of channel IDs where humanizer applies. Common values: 'telegram', 'slack'. Empty = all channels.",
+    "targetPeerIds": "Optional allowlist of Telegram peer IDs (user IDs, group IDs, topic IDs). Empty = all peers in allowed channels. Format for topics: '-1001774997176:topic:1'.",
+    "minChars": "Minimum character count to activate humanizer. Short messages are skipped. Default: 900.",
+    "minWords": "Alternative trigger: activate if word count >= this value (even if minChars not met). Default: 140.",
+    "minSentences": "Minimum sentence count. Very short responses (< 4 sentences) are skipped. Default: 4.",
+    "skipWhenCodeBlocks": "Skip messages that contain ``` code blocks. Recommended: true.",
+    "skipWhenMostlyStructured": "Skip messages where most lines are bullets/lists/tables/headers. Recommended: true.",
+    "structuredRatioThreshold": "0.0–1.0. If structured lines / total lines > this threshold → skip. Default: 0.45.",
+    "maxEditRatio": "0.0–1.0. If total edit distance / original length > this → block changes (too aggressive). Default: 0.35.",
+    "normalizeEmDash": "Replace em dash (— –) with hyphen ( - ). Default: true.",
+    "removeStockPhrases": "Remove AI cliché phrases: 'at the end of the day', 'it's worth noting', 'delve into', 'leverage', etc. Default: true.",
+    "reduceHedging": "Remove redundant hedging: 'may potentially' → 'may', 'somewhat ' → '', etc. Default: true.",
+    "rewriteRuleOfThree": "Rewrite 'A, B, and C' → 'A and B, plus C'. Default: true.",
+    "dryRun": "If true, run all rules but do NOT apply changes (log only). Useful for testing. Default: false.",
+    "debug": "If true, log skip reasons and rule hits to openclaw logger. Default: false."
+  },
+
+  "enabled": true,
+
+  "channels": ["telegram"],
+
+  "targetPeerIds": [
+    "455103738",
+    "-1001774997176:topic:1",
+    "-1001774997176"
+  ],
+
+  "minChars": 900,
+  "minWords": 140,
+  "minSentences": 4,
+
+  "skipWhenCodeBlocks": true,
+  "skipWhenMostlyStructured": true,
+  "structuredRatioThreshold": 0.45,
+
+  "maxEditRatio": 0.35,
+
+  "normalizeEmDash": true,
+  "removeStockPhrases": true,
+  "reduceHedging": true,
+  "rewriteRuleOfThree": true,
+
+  "dryRun": false,
+  "debug": false
+}

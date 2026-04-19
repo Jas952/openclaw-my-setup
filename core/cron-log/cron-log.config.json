@@ -1,0 +1,5 @@
+{
+  "dbPath": "~/clawd/data/cron-log.db",
+  "staleAfterMs": 7200000,
+  "persistentFailureThreshold": 2
+}

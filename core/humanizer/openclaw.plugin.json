@@ -1,0 +1,53 @@
+{
+  "id": "humanizer",
+  "name": "Humanizer",
+  "description": "Automatic outbound humanizer with deterministic rule-based rewriting.",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "enabled": { "type": "boolean", "default": true },
+      "channels": {
+        "type": "array",
+        "items": { "type": "string" },
+        "default": ["telegram"]
+      },
+      "targetPeerIds": {
+        "type": "array",
+        "items": { "type": "string" },
+        "default": []
+      },
+      "minChars": { "type": "number", "minimum": 1, "default": 900 },
+      "minWords": { "type": "number", "minimum": 1, "default": 140 },
+      "minSentences": { "type": "number", "minimum": 1, "default": 4 },
+      "skipWhenCodeBlocks": { "type": "boolean", "default": true },
+      "skipWhenMostlyStructured": { "type": "boolean", "default": true },
+      "structuredRatioThreshold": { "type": "number", "minimum": 0, "maximum": 1, "default": 0.45 },
+      "maxEditRatio": { "type": "number", "minimum": 0, "maximum": 1, "default": 0.35 },
+      "normalizeEmDash": { "type": "boolean", "default": true },
+      "removeStockPhrases": { "type": "boolean", "default": true },
+      "reduceHedging": { "type": "boolean", "default": true },
+      "rewriteRuleOfThree": { "type": "boolean", "default": true },
+      "dryRun": { "type": "boolean", "default": false },
+      "debug": { "type": "boolean", "default": false }
+    }
+  },
+  "uiHints": {
+    "enabled": { "label": "Enable Humanizer" },
+    "channels": { "label": "Channels", "help": "Apply only to these channels." },
+    "targetPeerIds": { "label": "Target Peer IDs", "help": "Optional allowlist of peer IDs (DM or group/topic IDs)." },
+    "minChars": { "label": "Min Characters", "help": "Minimum text length to activate." },
+    "minWords": { "label": "Min Words", "help": "Alternative length trigger in words." },
+    "minSentences": { "label": "Min Sentences", "help": "Skip very short responses." },
+    "skipWhenCodeBlocks": { "label": "Skip Code Blocks" },
+    "skipWhenMostlyStructured": { "label": "Skip Structured Text" },
+    "structuredRatioThreshold": { "label": "Structured Ratio Threshold" },
+    "maxEditRatio": { "label": "Rules Max Edit Ratio" },
+    "normalizeEmDash": { "label": "Normalize Em Dash" },
+    "removeStockPhrases": { "label": "Remove Stock Phrases" },
+    "reduceHedging": { "label": "Reduce Hedging" },
+    "rewriteRuleOfThree": { "label": "Rewrite Rule of Three" },
+    "dryRun": { "label": "Dry Run" },
+    "debug": { "label": "Debug Logging" }
+  }
+}
