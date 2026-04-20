@@ -1,17 +1,16 @@
 # UI Source Structure
 
-Исходный код UI-оболочки в публичной версии не раскрывается.
+The source code of the UI shell is not included in the public version.
 
-Здесь в полной версии проекта находятся:
+In the full version of the project, this is where you would find:
 
-- точка входа приложения;
-- композиция экранов и основных UI-блоков;
-- внутренние компоненты;
-- интеграция с gateway и runtime-командами;
-- голосовые и реактивные client-side хуки;
-- типы и вспомогательные модули.
+- the application entry point;
+- screen composition and the main UI blocks;
+- internal components;
+- integration with the gateway and runtime commands;
+- voice and reactive client-side hooks;
+- types and supporting modules.
 
-Публичный репозиторий показывает визуальный результат, общую идею и оболочку продукта, но не весь внутренний implementation layer.
+The public repository shows the visual outcome, the product direction, and the shell itself, but not the full internal implementation layer.
 
-Если хочется увидеть полную версию, напишите мне в дм `Jas953`.
-
+If you want to see the full version, message me directly at `Jas953`.

@@ -1,4 +1,3 @@
 # TTS Jarvis Lab
 
-Это изолированная песочница для проверки идеи: OpenClaw отвечает как обычно, а UI дополнительно проговаривает ответ вслух.
-
+This is an isolated sandbox for testing a simple idea: OpenClaw responds as usual, and the UI additionally speaks the response out loud.

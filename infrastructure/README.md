@@ -1,20 +1,20 @@
 # Infrastructure Notes
 
-Этот каталог сохранен в репозитории как указатель на внешний инфраструктурный источник, который использовался в работе над нашим OpenClaw workspace.
+This directory is kept in the repository as a pointer to the external infrastructure source used while building our OpenClaw workspace.
 
-Upstream-репозиторий, который использовался как базовая инфраструктурная основа:
+Upstream repository used as the base infrastructure layer:
 
 - https://github.com/openclaw/openclaw
 
-Что важно:
+What matters here:
 
-- содержимое `openclaw-2026.3.13/` не публикуется в основном репозитории;
-- эта часть рассматривается как внешний базовый слой, а не как центральная часть нашей авторской публикации;
-- на GitHub-странице основного репозитория стоит дать ссылку на оригинальный источник.
+- the contents of `openclaw-2026.3.13/` are not published in the main repository;
+- this layer is treated as an external base, not as the central part of our authored public release;
+- the main GitHub page should link back to the original source.
 
-Почему так:
+Why:
 
-- внутри этой директории находится внешний код и инфраструктурный слой, который мы не хотим смешивать с нашей собственной публичной выкладкой;
-- основной репозиторий должен показывать именно наш workspace, настройки, документацию и прикладные наработки.
+- this directory contains external code and infrastructure that we do not want to mix with our own public release;
+- the main repository should focus on our workspace, configuration, documentation, and application-level work.
 
-В этом репозитории инфраструктурный слой показан только как ссылка и контекст использования. Основной фокус публикации здесь сделан на нашем workspace, интерфейсе, прикладных модулях и пользовательских сценариях поверх OpenClaw.
+In this repository, the infrastructure layer is shown only as a link and as usage context. The main focus here is our workspace, interface, application modules, and real user workflows built on top of OpenClaw.

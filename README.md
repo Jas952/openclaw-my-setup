@@ -1,66 +1,59 @@
 # OpenClaw Workspace
 
-Этот репозиторий показывает мой практический workspace вокруг OpenClaw: как я использовал агентную систему в реальной работе, как был организован вывод в Telegram, как выглядел UI-слой и какие прикладные модули я собирал поверх базовой инфраструктуры.
+This repository shows my practical workspace around OpenClaw: how I used the agent system in real work, how Telegram delivery was organized, what the UI layer looked like, and which application modules I built on top of the base infrastructure.
 
-Это не зеркало upstream-репозитория. Здесь собран именно мой пользовательский и инженерный слой: организация среды, интерфейс, внутренние сервисы, исследовательские сценарии, автоматизация и документация по тому, как всё это использовалось на практике.
+This repo captures my user-facing and engineering layer: environment organization, interface work, internal services, research workflows, automation, and documentation describing how the system was actually used.
 
-Важно: базовая инфраструктурная основа в проекте опиралась на OpenClaw upstream, а остальные части этого workspace, UI-оболочка, прикладные сценарии и значительная часть документации и automation-логики собирались мной самостоятельно и в связке с языковыми моделями.
+Important: the project's infrastructure foundation relied on the OpenClaw architecture, while the rest of this workspace, the UI shell, application scenarios, and a significant part of the documentation and automation logic were assembled by me directly together with language models. Roughly 70% of the code was written by a language model that I orchestrated.
 
-## Что Это За Репозиторий
+## What This Repository Is
 
-Этот workspace решает не одну узкую задачу, а собирает вокруг агента полноценную рабочую среду:
+What this working environment includes:
 
-- Telegram как основной живой канал взаимодействия;
-- UI как локальную визуальную оболочку для управления ботом;
-- локальную knowledge-base для накопления и повторного использования материалов;
-- сервисные модули для учета usage, backup, cron-логов и внутренних проверок;
-- набор инструментов и сценариев, которые расширяют базовые возможности OpenClaw.
-
-## Applied Stack
-
-Основной стек этого workspace собран на `TypeScript` и `JavaScript` с использованием `Node.js`, `React`, `Vite`, `Electron`, `SQLite`, `@zvec/zvec`, `@huggingface/transformers`, `better-sqlite3`, `Playwright` и `Google APIs` для UI, локальной knowledge-base, automation и backup-сценариев.
-
-Отдельно отмечу, что в работе над экосистемой я также использовал `Python` и `Go`: `Python` присутствует и в этом публичном репозитории как часть сервисных модулей, а `Go` использовался в связанных задачах вокруг проекта, хотя в текущем публичном snapshot он почти не представлен.
+- Telegram as the main interaction channel;
+- a local UI shell for working with the bot;
+- a local knowledge base for collecting and reusing materials;
+- service modules for usage tracking, backup, cron logging, and internal checks;
+- remote browser work with full control over tabs and the active page;
+- a set of tools and scenarios that extend the base OpenClaw capabilities.
 
 ## Telegram Workflow
 
-Один из главных способов работы с ботом был Telegram. Основной живой контур общения шел через личные сообщения под именем `Jas`: там происходили постановка задач, быстрые диалоги, ручные команды и ежедневная работа с агентом.
+Telegram was one of the main ways I worked with the bot. The primary live interaction loop happened in direct messages under the `Jas` name: tasking, quick conversations, manual commands, and everyday agent work all happened there.
 
-Параллельно были вынесены отдельные тематические ветки под разработку, сводки, knowledge-base, usage-статистику, trading-сценарии и исследовательские задачи.
+Alongside that, I used dedicated topic branches for development, summaries, knowledge-base flows, usage statistics, trading scenarios, and research tasks.
 
 ```text
 Telegram
-├── Jas (личные сообщения)
-│   └── основной контур общения с ботом: диалоги, команды, ручные задачи и быстрые проверки
+├── Jas (direct messages)
+│   └── the main interaction loop with the bot: conversations, commands, manual tasks, and quick checks
 ├── llm.hub
-│   ├── chunks          — добавление и контроль материалов в базу знаний
-│   ├── dev             — dev-сообщения, critical alerts и технические события
-│   ├── jas-openai      — отдельная рабочая ветка под OpenAI-сценарии
-│   ├── token-balance   — сводки по токенам, usage и модельной статистике
-│   ├── jas-anthropic   — отдельная рабочая ветка под Anthropic-сценарии
-│   ├── ai-summary      — краткие AI-сводки и обзорные сообщения
-│   └── General         — общий служебный слой и базовая коммуникация
-└── llm.trading
-    ├── macro              — макро-календарь и ближайшие экономические релизы
-    ├── agent-trading      — разбор рыночной картины и trading-аналитика
-    ├── token-optimization — визуалы, публикации и optimization-сценарии
-    ├── updates            — служебные апдейты и изменения структуры
-    ├── 6551               — news/data feed и новостные сигналы
-    ├── etc                — дополнительные материалы и вспомогательные публикации
-    ├── links              — быстрые ссылки и связующие элементы
-    ├── x-search           — поисковые и исследовательские сценарии по X/Twitter
-    └── General            — общий канал/ветка для базовой структуры раздела
+│   ├── chunks          — adding and controlling materials in the knowledge base
+│   ├── dev             — dev messages, critical alerts, and technical events
+│   ├── *-openai        — dedicated working branch for OpenAI scenarios
+│   ├── token-balance   — token, usage, and model statistics summaries
+│   ├── *-anthropic     — dedicated working branch for Anthropic scenarios
+│   ├── ai-summary      — short AI summaries and overview messages (custom Go implementation)
+│   └── General         — shared operational layer and baseline communication
+└── llm.trading (custom Go implementation)
+    ├── macro              — macro calendar and upcoming economic releases
+    ├── agent-trading      — market analysis and trading interpretation
+    ├── token-optimization — optimization scenarios
+    ├── updates            — operational updates and structure changes
+    ├── 6551               — news/data feed and signal-style updates
+    ├── etc                — additional materials and supporting posts
+    ├── links              — quick links and connecting items
+    ├── x-search           — search workflows over X/Twitter
+    └── General            — shared channel/topic for the baseline structure
 ```
 
-Пример структуры Telegram-канала:
+Example Telegram channel structure:
 
 - [Telegram channel structure](assets-github/tg.png)
 
 ## UI Layer
 
-UI здесь был не просто оболочкой, а отдельным рабочим слоем. Он нужен для того, чтобы бот ощущался как управляемая локальная система: с визуальным состоянием, диалогом, голосовыми сценариями, логами, библиотекой материалов и быстрым доступом к системным действиям.
-
-Внутреннее устройство UI, структура директорий и технические детали описаны отдельно в [UI/README.md](UI/README.md).
+The internal UI architecture, directory structure, and technical details are documented separately in [UI/README.md](UI/README.md).
 
 ![OpenClaw UI Main](assets-github/ui/main.jpg)
 
@@ -69,31 +62,24 @@ UI здесь был не просто оболочкой, а отдельным
 - [UI logs panel](assets-github/ui/logs.jpg)
 - [UI Library / knowledge-base tab](assets-github/ui/knowledge-base.jpg)
 
-## Доступ И Разрешения
+## Access And Permissions
 
-В этом workspace можно было вручную управлять тем, к чему бот имеет доступ внутри устройства. На практике это позволяло включать и отключать отдельные tool-группы через `tools.allow` / `tools.deny`, а со стороны UI работать с системными разрешениями вроде микрофона и `media/audio capture`.
+This workspace made it possible to control what the bot could access on the device. In practice, that meant enabling or disabling specific tool groups through `tools.allow` / `tools.deny`, while the UI also exposed system permissions such as microphone access and `media/audio capture`.
 
-Это важно как часть реальной эксплуатации: бот здесь рассматривался не как абстрактный чат, а как управляемая агентная система с контролем доступа.
 
-## Что Находится В Репозитории
+## What Lives In This Repository
 
-- `UI/` содержит локальную визуальную оболочку бота, desktop-слой и пользовательский интерфейс для работы с агентом. Подробнее: [UI/README.md](UI/README.md)
-- `core/` собирает прикладные внутренние модули workspace: knowledge-base, backup, usage-tracking, cron-логи и другие сервисные части. Подробнее: [core/README.md](core/README.md)
-- `councils/` отвечает за проверки, quality-control, security-review сценарии и служебную внутреннюю валидацию состояния системы. Подробнее: [councils/README.md](councils/README.md)
-- `tools/` хранит вспомогательные инструменты и отдельные сценарии автоматизации вокруг основного workspace. Подробнее: [tools/README.md](tools/README.md)
-- `tts-jarvis/` показывает отдельное направление голосового и Jarvis-подобного взаимодействия с ботом. Подробнее: [tts-jarvis/README.md](tts-jarvis/README.md)
-- `infrastructure/` оставлен как указатель на внешний инфраструктурный слой, который использовался как база для проекта, но не публикуется здесь полностью. Подробнее: [infrastructure/README.md](infrastructure/README.md)
-- `assets-github/` содержит изображения и скриншоты, которые используются для оформления GitHub-страницы и демонстрации интерфейса и рабочих сценариев.
-- `skills/` хранит локальные skill-расширения и инструкции для специализированных сценариев работы.
-- `workspaces/` содержит рабочие пространства агентов, личные и тематические конфигурации, на которых строились реальные сценарии использования.
-- `extracted/` используется как вспомогательная зона для извлеченных материалов и внешних артефактов локальной работы.
-- `logs/` хранит локальные runtime-логи и следы выполнения.
+- `UI/` contains the local visual shell, desktop layer, and main user interface for working with the agent. Details: [UI/README.md](UI/README.md)
+- `core/` groups the internal application modules of the workspace: knowledge base, backup, usage tracking, cron logging, and other service components. Details: [core/README.md](core/README.md)
+- `councils/` handles checks, quality-control flows, security-review scenarios, and internal system-state validation. Details: [councils/README.md](councils/README.md)
+- `tools/` stores helper tools and separate automation scenarios around the main workspace. Details: [tools/README.md](tools/README.md)
+- `infrastructure/` is kept as a pointer to the external infrastructure layer used as the project's base, but it is not fully published here. Details: [infrastructure/README.md](infrastructure/README.md)
+- `skills/` stores local skill extensions and instructions for specialized workflows.
+- `workspaces/` contains agent workspaces, personal and thematic configurations, and real usage setups.
+- `extracted/` serves as a support zone for extracted materials and external local artifacts.
+- `logs/` stores local runtime logs and execution traces.
 
-## Зачем Нужны Отдельные README
-
-Главный README специально держит только обзорный уровень. Он объясняет, что это за репозиторий, как он использовался и из каких крупных частей состоит.
-
-Детали по конкретным подсистемам вынесены в отдельные README, чтобы не смешивать обзор проекта с внутренней технической документацией:
+Details for individual subsystems are split into dedicated README files so the project overview does not get mixed with lower-level technical documentation:
 
 - [UI/README.md](UI/README.md)
 - [core/README.md](core/README.md)
@@ -102,8 +88,11 @@ UI здесь был не просто оболочкой, а отдельным
 - [tts-jarvis/README.md](tts-jarvis/README.md)
 - [infrastructure/README.md](infrastructure/README.md)
 
-## Итог
+## Summary
 
-Этот репозиторий показывает не только код, но и способ организации личной агентной среды вокруг OpenClaw: как был устроен интерфейс, как бот использовался в Telegram, как собиралась knowledge-base, как отслеживался usage и как вокруг агента строился набор реальных рабочих сценариев.
+This repository shows not only code, but also a concrete way of organizing a personal agent environment around OpenClaw: how the interface was designed, how the bot was used in Telegram, and how real operational workflows were built around the agent.
 
-Важно: этот репозиторий не хранит некоторую значительную часть большого внутреннего кода и связанных наработок. Если нужен более полный обзор или демонстрация закрытых частей, стоит связаться со мной напрямую.
+Important: this repository does not include a significant part of the larger internal codebase and related work. If you want a fuller walkthrough or a demo of the closed parts, please contact me directly:
+
+- @Telegram - @Jas952
+- @LinkedIn - https://www.linkedin.com/in/jas952/

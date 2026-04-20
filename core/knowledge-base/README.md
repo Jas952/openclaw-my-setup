@@ -1,49 +1,50 @@
 # Knowledge Base
 
-`core/knowledge-base/` — это локальная база знаний для бота. Она работает как долговременная исследовательская память: сохраняет материалы, разбивает их на части, индексирует и потом помогает быстро находить нужный контекст.
+`core/knowledge-base/` is the bot's local knowledge base. It acts as long-term research memory: it stores materials, splits them into parts, indexes them, and later helps recover the right context quickly.
 
-## Что она делает
+## What It Does
 
-Модуль позволяет:
+This module can:
 
-- сохранять статьи, ссылки, PDF и текстовые материалы;
-- резать их на chunks;
-- строить для них embeddings;
-- потом находить релевантные фрагменты по обычному запросу на естественном языке.
+- store articles, links, PDFs, and plain text materials;
+- split them into chunks;
+- build embeddings for them;
+- find relevant fragments later through natural-language search.
 
-## Как я использую это на практике
+## How I Use It In Practice
 
-- в Telegram отправляю боту ссылку, статью или документ;
-- материал автоматически или вручную сохраняется в knowledge base;
-- текст режется на чанки и индексируется;
-- позже я в любой момент могу спросить бота по этой теме, и он быстро поднимает нужный контекст из локальной памяти.
+- in Telegram, I send the bot a link, article, or document;
+- the material is saved to the knowledge base automatically or manually;
+- the text is split into chunks and indexed;
+- later I can ask the bot about that topic at any time, and it quickly pulls the needed context from local memory.
 
-Эта возможность выведена и в UI через вкладку `Library`, где можно видеть сохранённые материалы и работать с ними как с личной исследовательской библиотекой.
+This capability is also exposed in the UI through the `Library` tab, where saved materials can be browsed and used as a personal research library.
 
 ![Knowledge Base Library View](../../assets-github/ui/knowledge-base.jpg)
 
-## Какая модель используется
+## Which Model Is Used
 
-Здесь используется локальная embedding-модель:
+This module uses a local embedding model:
 
-| Параметр | Значение |
+| Parameter | Value |
 |---|---|
-| Модель | `Xenova/multilingual-e5-small` |
-| Тип | multilingual embedding model |
-| Размер вектора | `384` |
-| Языки | RU + EN и другие multilingual-сценарии |
-| Режим работы | полностью локально, без API-ключей |
+| Model | `Xenova/multilingual-e5-small` |
+| Type | multilingual embedding model |
+| Vector size | `384` |
+| Languages | RU + EN plus other multilingual scenarios |
+| Runtime mode | fully local, no API keys required |
 
-## Где хранятся данные
+## Where The Data Lives
 
-Векторный слой и база устроены так:
-- `zvec` используется как локальный vector store;
-- SQLite хранит записи, метаданные и чанки;
-- векторы и метаданные используются вместе для последующего retrieval.
+The vector layer and the database are structured as follows:
+- `zvec` is used as the local vector store;
+- `zvec` is used as the local vector store;
+- SQLite stores entries, metadata, and chunks;
+- vectors and metadata are used together during retrieval.
 
-## Технические параметры
+## Technical Parameters
 
-| Параметр | Значение |
+| Parameter | Value |
 |---|---|
 | `embeddingDim` | `384` |
 | `chunkSize` | `500` |
@@ -52,51 +53,51 @@
 | `collection metric` | `cosine similarity` |
 | `index type` | `flat` |
 
-## Как это работает
+## How It Works
 
 ```text
-URL / PDF / текст / локальный файл
+URL / PDF / text / local file
         │
         ▼
   ingest.js
         │
-        ├── извлекает текст
-        ├── режет на chunks
-        ├── строит embeddings
-        ├── сохраняет metadata в SQLite
-        └── сохраняет vectors в zvec
+        ├── extracts text
+        ├── splits into chunks
+        ├── builds embeddings
+        ├── stores metadata in SQLite
+        └── stores vectors in zvec
                  │
                  ▼
             query.js
                  │
-                 ├── строит embedding запроса
-                 ├── делает semantic search
-                 └── возвращает лучшие chunks
+                 ├── builds the query embedding
+                 ├── runs semantic search
+                 └── returns the best chunks
 ```
 
-## Структура
+## Structure
 
 ```text
 core/knowledge-base/
-├── ingest.js      — добавление URL, PDF, текста и файлов в базу знаний
-├── query.js       — semantic query по knowledge base
-├── list.js        — список сохраненных материалов
-├── delete.js      — удаление записи из базы
-├── embed.js       — локальная embedding-логика
-├── db.js          — SQLite + zvec слой
-├── kb.config.json — параметры модели, chunking и dataDir
-└── SKILL.md       — правила использования knowledge-base внутри OpenClaw
+├── ingest.js      — add URLs, PDFs, text, and files to the knowledge base
+├── query.js       — semantic querying against the knowledge base
+├── list.js        — list saved materials
+├── delete.js      — delete an entry from the database
+├── embed.js       — local embedding logic
+├── db.js          — SQLite + zvec layer
+├── kb.config.json — model, chunking, and dataDir parameters
+└── SKILL.md       — rules for using the knowledge base inside OpenClaw
 ```
 
-## Примеры
+## Examples
 
-### После сохранения
+### After Ingestion
 
 ```text
-✓ Добавлено в базу знаний: Title of Article (12 chunks)
+✓ Added to knowledge base: Title of Article (12 chunks)
 ```
 
-### При поиске
+### During Search
 
 ```text
 1. [84.4% match] Article Title
@@ -106,8 +107,8 @@ core/knowledge-base/
    Excerpt from the matched chunk...
 ```
 
-### При просмотре библиотеки
+### While Viewing The Library
 
 ```text
-Knowledge Base — 18 entries, 146 total chunks
+Knowledge Base - 18 entries, 146 total chunks
 ```

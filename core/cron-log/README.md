@@ -1,20 +1,20 @@
 # Cron Log
 
-`core/cron-log/` отвечает за локальное журналирование cron-задач и помогает понять, что запускалось, когда завершилось и где произошел сбой.
+`core/cron-log/` handles local cron task logging and helps answer what ran, when it finished, and where a failure occurred.
 
-## Зачем это нужно в OpenClaw
+## Why This Matters In OpenClaw
 
-В OpenClaw и связанных automation-сценариях периодические задачи быстро становятся важной частью инфраструктуры: публикации, обновления, проверки, синхронизация данных. Этот модуль нужен, чтобы такие процессы были наблюдаемыми.
+In OpenClaw and related automation workflows, scheduled jobs quickly become an important part of the infrastructure: publishing, updates, checks, and data synchronization. This module exists to make those processes observable.
 
-## Что внутри
+## What's Inside
 
 ```text
 core/cron-log/
-├── log-start.js                 — фиксирует старт задания
-├── log-end.js                   — фиксирует завершение задания
-├── cleanup-stale.js             — чистит зависшие записи
-├── check-persistent-failures.js — ищет повторяющиеся сбои
-├── query.js                     — выборка и просмотр логов
-├── db.js                        — работа с локальной БД журнала
-└── cron-log.config.json         — конфигурация модуля
+├── log-start.js                 — records job start
+├── log-end.js                   — records job completion
+├── cleanup-stale.js             — removes stale entries
+├── check-persistent-failures.js — finds repeated failures
+├── query.js                     — log querying and inspection
+├── db.js                        — local log database access
+└── cron-log.config.json         — module configuration
 ```

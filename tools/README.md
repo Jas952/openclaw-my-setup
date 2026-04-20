@@ -1,44 +1,44 @@
 # Tools
 
-`tools/` — это набор вспомогательных инструментов вокруг OpenClaw workspace. Здесь лежат отдельные утилиты, skill-пакеты, исследовательские помощники и automation-модули под конкретные задачи.
+`tools/` is a collection of supporting utilities around the OpenClaw workspace. It includes standalone helpers, skill packages, research assistants, and automation modules for specific tasks.
 
-## Что это даёт
+## What It Provides
 
-Это не upstream-ядро OpenClaw, а прикладной toolbox, который помогает расширять бота под конкретные сценарии:
+This is not the upstream OpenClaw core. It is an application-focused toolbox that extends the bot for concrete scenarios:
 
-- scraping и browser verification;
-- визуализация и схемы;
-- исследование X / YouTube;
-- orchestration и служебные automation-потоки.
+- scraping and browser verification;
+- visualization and diagrams;
+- X / YouTube research;
+- orchestration and operational automation flows.
 
-## Структура
+## Structure
 
 ```text
 tools/
-├── excalidraw/            — генерация и рендер Excalidraw-схем
-├── memory-check/          — быстрые проверки и сценарии вокруг memory
-├── peekaboo/              — системные/desktop проверки и permissions-диагностика
-├── scrapling-fetch/       — fetch/scraping пайплайн для статического и динамического веба
-├── session-logs/          — работа с логами сессий
-├── spotify-player/        — отдельный skill/tool для Spotify-сценариев
-├── symphony/              — orchestration-набор и workflow-структура
-├── trading/               — trading-блок, который вынесен в отдельный repo
-├── verify-on-browser/     — browser-based проверка страниц и интерфейсов
-├── x-research-v2/         — исследование и сбор данных по X/Twitter
-├── youtube-fetch/         — сбор материалов по YouTube
-└── youtube-sub-ratio/     — анализ YouTube-каналов и их метрик
+├── excalidraw/            — generation and rendering of Excalidraw diagrams
+├── memory-check/          — quick checks and memory-oriented scenarios
+├── peekaboo/              — system/desktop checks and permission diagnostics
+├── scrapling-fetch/       — fetch/scraping pipeline for static and dynamic web content
+├── session-logs/          — session log tooling
+├── spotify-player/        — dedicated skill/tool for Spotify scenarios
+├── symphony/              — orchestration toolkit and workflow structure
+├── trading/               — trading block published as a separate repository
+├── verify-on-browser/     — browser-based page and interface verification
+├── x-research-v2/         — research and data collection for X/Twitter
+├── youtube-fetch/         — collection of YouTube materials
+└── youtube-sub-ratio/     — analysis of YouTube channels and their metrics
 ```
 
-## Как это используется
+## How It Is Used
 
-- часть инструментов подключается как skills внутри OpenClaw;
-- часть запускается как отдельные локальные утилиты;
-- часть используется для сбора и анализа данных;
-- часть связывает бота, браузер, контент и внешние источники.
+- some tools are connected as skills inside OpenClaw;
+- some run as standalone local utilities;
+- some are used for data collection and analysis;
+- some bridge the bot, the browser, content, and external sources.
 
-## Примеры результата
+## Example Outcomes
 
-- `scrapling-fetch` может вытащить и нормализовать содержимое веб-страницы;
-- `verify-on-browser` позволяет проверить, как реально открывается и выглядит страница;
-- `x-research-v2` и `youtube-*` помогают собирать и анализировать данные по внешним платформам;
-- `excalidraw` дает способ быстро строить схемы и визуальные объяснения вокруг задач бота.
+- `scrapling-fetch` can extract and normalize the contents of a web page;
+- `verify-on-browser` makes it possible to check how a page actually opens and looks;
+- `x-research-v2` and `youtube-*` help collect and analyze data from external platforms;
+- `excalidraw` provides a fast way to build diagrams and visual explanations around bot tasks.

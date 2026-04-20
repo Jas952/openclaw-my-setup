@@ -1,35 +1,35 @@
 # Core
 
-`core/` — это внутренний сервисный слой. Здесь лежат модули, которые делают бота полезным в реальной работе: память, бекапы, usage-отчёты, журналирование и постобработка ответов.
+`core/` is the internal service layer. It contains the modules that make the bot useful in real work: memory, backups, usage reports, logging, and response post-processing.
 
-## Что это даёт
+## What It Provides
 
-Он отвечает за:
+It is responsible for:
 
-- сохранение и поиск знаний;
-- резервное копирование локальных данных;
-- трекинг использования моделей;
-- журналирование фоновых задач;
-- rule-based постобработку текста;
-- отдельные UI/office-эксперименты.
+- storing and searching knowledge;
+- backing up local data;
+- tracking model usage;
+- logging background jobs;
+- rule-based text post-processing;
+- separate UI and office-style experiments.
 
-## Структура
+## Structure
 
 ```text
 core/
-├── backup/              — зашифрованные бекапы локальных баз и данных
-├── cron-log/            — журналирование и аудит cron-задач
-├── humanizer/           — rule-based “очеловечивание” исходящих ответов
-├── knowledge-base/      — локальная RAG knowledge base с векторным поиском
-├── model-usage-tracker/ — usage/cost/volume трекинг по моделям и агентам
-└── office-ui/           — отдельный office/presence UI-проект
+├── backup/              — encrypted backups for local databases and data
+├── cron-log/            — cron task logging and audit
+├── humanizer/           — rule-based humanization of outgoing responses
+├── knowledge-base/      — local RAG knowledge base with vector search
+├── model-usage-tracker/ — usage/cost/volume tracking across models and agents
+└── office-ui/           — a separate office/presence UI project
 ```
 
-## Как это работает
+## How It Works
 
-- `backup/` берёт локальные базы, шифрует архивы и отправляет их в хранилище.
-- `cron-log/` записывает старт, завершение и сбои периодических задач.
-- `humanizer/` убирает шаблонные AI-паттерны из исходящего текста без LLM.
-- `knowledge-base/` сохраняет статьи, ссылки и документы в локальную базу чанков и векторных эмбеддингов. Позволяет вернуться к любой сохранённой статье и быстро найти нужный контекст.
-- `model-usage-tracker/` считает usage по моделям и агентам и собирает сводки. Показывает, какие модели реально использовались и в каком объёме.
-- `office-ui/` отвечает за отдельный визуальный слой присутствия и состояния агентов.
+- `backup/` takes local databases, encrypts archives, and uploads them to storage.
+- `cron-log/` records starts, completions, and failures of scheduled jobs.
+- `humanizer/` removes stock AI writing patterns from outgoing text without using an LLM.
+- `knowledge-base/` stores articles, links, and documents in a local chunk and embedding database. It lets you return to any saved article and quickly recover the needed context.
+- `model-usage-tracker/` measures usage by model and agent and builds summaries. It shows which models were actually used and at what scale.
+- `office-ui/` provides a separate visual layer for presence and agent status.

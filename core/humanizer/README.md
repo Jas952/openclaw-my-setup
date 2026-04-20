@@ -1,107 +1,107 @@
 # Humanizer Plugin
 
-Автоматически обрабатывает исходящие сообщения бота, убирая AI-паттерны письма.
-Работает без LLM — только rule-based (детерминированные правила).
+Automatically post-processes outgoing bot messages to remove AI-style writing patterns.
+Works without an LLM - rule-based only, using deterministic rules.
 
-## Расположение
+## Layout
 
-| Файл | Назначение |
+| File | Purpose |
 |---|---|
-| `humanizer.config.json` | **Редактировать здесь** — все параметры плагина |
-| `core.js` | Логика правил (stock phrases, hedging, rule-of-three, em dash) |
-| `index.ts` | Entry point для OpenClaw — слушает `message_sending` |
-| `openclaw.plugin.json` | Метаданные плагина и JSON Schema конфига |
-| `humanizer.test.js` | Авто-тесты: `node humanizer.test.js` |
+| `humanizer.config.json` | **Edit here** - all plugin parameters |
+| `core.js` | Rule logic: stock phrases, hedging, rule-of-three, em dash |
+| `index.ts` | OpenClaw entry point - listens to `message_sending` |
+| `openclaw.plugin.json` | Plugin metadata and config JSON Schema |
+| `humanizer.test.js` | Automated tests: `node humanizer.test.js` |
 
-Установленная версия: `~/.openclaw/extensions/humanizer/`
+Installed version: `~/.openclaw/extensions/humanizer/`
 
-## Запуск тестов
+## Running Tests
 
 ```bash
 node /Users/dmitriy/openclaw/tools/humanizer/humanizer.test.js
 ```
 
-## Все настраиваемые параметры
+## All Configurable Parameters
 
-### Базовые
+### Basic
 
-| Параметр | Тип | По умолчанию | Описание |
+| Parameter | Type | Default | Description |
 |---|---|---|---|
-| `enabled` | boolean | `true` | Включить/выключить плагин целиком |
-| `dryRun` | boolean | `false` | Режим симуляции — правила применяются, но текст не меняется. Включай для тестирования |
-| `debug` | boolean | `false` | Логировать причины пропуска и сработавшие правила |
+| `enabled` | boolean | `true` | Enable or disable the plugin entirely |
+| `dryRun` | boolean | `false` | Simulation mode - rules are applied but the text is not changed. Useful for testing |
+| `debug` | boolean | `false` | Log skip reasons and triggered rules |
 
-### Где применяется
+### Where It Applies
 
-| Параметр | Тип | По умолчанию | Описание |
+| Parameter | Type | Default | Description |
 |---|---|---|---|
-| `channels` | string[] | `["telegram"]` | Применять только в этих каналах. Известные значения: `"telegram"`, `"slack"`. Пустой массив = все каналы |
-| `targetPeerIds` | string[] | `[]` | Белый список Telegram peer ID (личные, группы, топики). Пустой массив = все пиры в разрешённых каналах. Формат топика: `"-1001774997176:topic:1"` |
+| `channels` | string[] | `["telegram"]` | Apply only in these channels. Known values: `"telegram"`, `"slack"`. Empty array = all channels |
+| `targetPeerIds` | string[] | `[]` | Telegram peer ID allowlist: direct chats, groups, topics. Empty array = all peers in the allowed channels. Topic format: `"-1001774997176:topic:1"` |
 
-**Текущие targetPeerIds:**
-- `455103738` — личный чат (Дима)
-- `-1001774997176` — группа целиком
-- `-1001774997176:topic:1` — конкретный топик группы
+**Current targetPeerIds:**
+- `455103738` - direct chat (Dima)
+- `-1001774997176` - full group
+- `-1001774997176:topic:1` - a specific group topic
 
-### Условия активации (когда применять)
+### Activation Conditions (when to apply)
 
-| Параметр | Тип | По умолчанию | Описание |
+| Parameter | Type | Default | Description |
 |---|---|---|---|
-| `minChars` | number | `900` | Минимальное число символов. Короткие сообщения пропускаются |
-| `minWords` | number | `140` | Альтернативный триггер по словам. Если слов >= этого — активируется (даже если minChars не достигнут) |
-| `minSentences` | number | `4` | Минимальное число предложений. Очень короткие ответы пропускаются |
+| `minChars` | number | `900` | Minimum number of characters. Short messages are skipped |
+| `minWords` | number | `140` | Alternative word-based trigger. If the word count is >= this value, the plugin activates even if `minChars` is not reached |
+| `minSentences` | number | `4` | Minimum number of sentences. Very short replies are skipped |
 
-> **Совет:** Снизи `minChars` до 300–400, если нужно покрытие для средних по длине ответов.
+> **Tip:** Lower `minChars` to 300-400 if you want coverage for medium-length replies.
 
-### Условия пропуска (когда НЕ применять)
+### Skip Conditions (when NOT to apply)
 
-| Параметр | Тип | По умолчанию | Описание |
+| Parameter | Type | Default | Description |
 |---|---|---|---|
-| `skipWhenCodeBlocks` | boolean | `true` | Пропускать сообщения с блоками кода (``` ```) |
-| `skipWhenMostlyStructured` | boolean | `true` | Пропускать если большинство строк — списки/таблицы/заголовки |
-| `structuredRatioThreshold` | number (0–1) | `0.45` | Порог "структурированности". Если доля структурных строк > этого значения → пропуск |
+| `skipWhenCodeBlocks` | boolean | `true` | Skip messages containing code blocks (``` ```) |
+| `skipWhenMostlyStructured` | boolean | `true` | Skip messages where most lines are lists, tables, or headings |
+| `structuredRatioThreshold` | number (0-1) | `0.45` | Structured-content threshold. If the share of structured lines is above this value, the message is skipped |
 
-### Что именно исправляет
+### What It Changes
 
-| Параметр | Тип | По умолчанию | Описание |
+| Parameter | Type | Default | Description |
 |---|---|---|---|
-| `normalizeEmDash` | boolean | `true` | Заменяет em dash (— –) на обычный дефис ( - ) |
-| `removeStockPhrases` | boolean | `true` | Удаляет AI-клише (см. список ниже) |
-| `reduceHedging` | boolean | `true` | Убирает избыточные хеджирования (см. список ниже) |
-| `rewriteRuleOfThree` | boolean | `true` | Переписывает "A, B, и C" → "A и B, плюс C" |
+| `normalizeEmDash` | boolean | `true` | Replaces em dash characters (—, –) with a regular hyphen (`-`) |
+| `removeStockPhrases` | boolean | `true` | Removes AI cliches (see list below) |
+| `reduceHedging` | boolean | `true` | Reduces excessive hedging language (see list below) |
+| `rewriteRuleOfThree` | boolean | `true` | Rewrites "A, B, and C" into a less formulaic structure |
 
-### Защита от чрезмерных правок
+### Protection Against Overediting
 
-| Параметр | Тип | По умолчанию | Описание |
+| Parameter | Type | Default | Description |
 |---|---|---|---|
-| `maxEditRatio` | number (0–1) | `0.35` | Если объём изменений > 35% от длины текста → изменения блокируются (текст остаётся оригинальным). Защита от агрессивных правок |
+| `maxEditRatio` | number (0-1) | `0.35` | If the amount of change exceeds 35% of the text length, edits are blocked and the original text is preserved. This protects against overly aggressive rewrites |
 
 ---
 
-## Список stock phrases (removeStockPhrases)
+## Stock Phrase List (`removeStockPhrases`)
 
-| ID | Паттерн | Замена |
+| ID | Pattern | Replacement |
 |---|---|---|
 | `stock_end_of_day` | "at the end of the day" | "ultimately" |
-| `stock_worth_noting` | "it's worth noting that" | *(удаляется)* |
-| `stock_important_to_note` | "it is important to note" | *(удаляется)* |
-| `stock_should_be_noted` | "it should be noted" | *(удаляется)* |
+| `stock_worth_noting` | "it's worth noting that" | *(removed)* |
+| `stock_important_to_note` | "it is important to note" | *(removed)* |
+| `stock_should_be_noted` | "it should be noted" | *(removed)* |
 | `stock_in_conclusion` | "in conclusion" | "in short," |
-| `stock_to_be_honest` | "to be honest" | *(удаляется)* |
-| `stock_transparent` | "to be completely transparent" | *(удаляется)* |
+| `stock_to_be_honest` | "to be honest" | *(removed)* |
+| `stock_transparent` | "to be completely transparent" | *(removed)* |
 | `stock_delve` | "delve into" | "look into" |
 | `stock_leverage` | "leverage" | "use" |
 | `stock_tapestry` | "tapestry" / "rich tapestry" | "mix" |
 
-## Список hedging rules (reduceHedging)
+## Hedging Rule List (`reduceHedging`)
 
-| ID | Паттерн | Замена |
+| ID | Pattern | Replacement |
 |---|---|---|
 | `hedge_may_potentially` | "may potentially" | "may" |
 | `hedge_might_potentially` | "might potentially" | "might" |
 | `hedge_often_can` | "often can" | "can" |
 | `hedge_can_often` | "can often" | "can" |
 | `hedge_it_appears` | "it appears that" | "it seems" |
-| `hedge_somewhat` | "somewhat " | *(удаляется)* |
+| `hedge_somewhat` | "somewhat " | *(removed)* |
 
 ---

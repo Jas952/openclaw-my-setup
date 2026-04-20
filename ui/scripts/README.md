@@ -1,15 +1,14 @@
 # UI Scripts Structure
 
-В этой папке в полной версии проекта лежат внутренние служебные скрипты для UI-оболочки.
+In the full project, this folder contains the internal operational scripts for the UI shell.
 
-Обычно здесь находятся:
+This typically includes:
 
-- локальный запуск UI;
-- интеграция с macOS;
-- вспомогательные dev/install-сценарии;
-- обвязка для локального окружения и упаковки.
+- local UI startup scripts;
+- macOS integration;
+- supporting dev and install scenarios;
+- local environment and packaging wrappers.
 
-Код скриптов в публичной версии не раскрывается, чтобы не публиковать внутренние пути, локальную интеграцию и часть operational-логики.
+The script code is not included in the public version in order to avoid exposing internal paths, local integration details, and parts of the operational logic.
 
-Если хочется увидеть полную версию, напишите мне в дм `Jas953`.
-
+If you want to see the full version, message me directly at `Jas953`.

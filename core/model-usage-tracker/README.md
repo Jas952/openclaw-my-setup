@@ -1,39 +1,39 @@
 # Model Usage Tracker
 
-`core/model-usage-tracker/` отвечает за локальный учет того, как в workspace используются модели: какие провайдеры и агенты активны, сколько было вызовов, какие объемы входа/выхода были потрачены и как это выглядело по времени.
+`core/model-usage-tracker/` handles local accounting for how models are used inside the workspace: which providers and agents are active, how many calls were made, how much input/output volume was consumed, and how that changed over time.
 
-Когда бот работает в нескольких каналах, с несколькими агентами, без такого слоя быстро теряется понимание:
+When the bot operates across multiple channels and agents, this layer becomes important because otherwise it is easy to lose track of:
 
-- какая модель реально используется чаще всего;
-- где уходит больше всего токенов;
-- какой агент создает основную нагрузку;
-- как меняется usage по дням и часам.
+- which model is actually used most often;
+- where most tokens are spent;
+- which agent creates the main workload;
+- how usage changes by day and by hour.
 
-## Что внутри
+## What's Inside
 
 ```text
 core/model-usage-tracker/
-├── parser.js          — парсинг runtime usage-данных
-├── aggregator.js      — агрегация статистики
-├── reporter.js        — формирование итоговых отчетов
-├── local-reporter.js  — локальный вывод/рендер отчетов
-├── chart-generator.js — генерация графиков
-├── run.js             — точка запуска пайплайна
-├── tracker.config.json— конфигурация источников и логики
-└── costs.json         — таблица стоимостей/оценок по моделям
+├── parser.js          — parse runtime usage data
+├── aggregator.js      — aggregate statistics
+├── reporter.js        — build final reports
+├── local-reporter.js  — local report rendering/output
+├── chart-generator.js — generate charts
+├── run.js             — pipeline entry point
+├── tracker.config.json— source and logic configuration
+└── costs.json         — cost/estimate table per model
 ```
 
-## Пример результата
+## Example Output
 
-На выходе можно получить:
+The tracker can produce:
 
-- дневную сводку по вызовам;
-- разбивку по агентам;
-- разбивку по моделям;
-- оценку token usage и приблизительной стоимости.
+- daily call summaries;
+- agent-level breakdowns;
+- model-level breakdowns;
+- token usage estimates and approximate cost.
 
-Это полезно и как мониторинг, и как инструмент оптимизации конфигурации бота.
+This is useful both as monitoring and as a way to optimize the bot configuration.
 
-Ниже пример того, как такой вывод может выглядеть на практике:
+Below is an example of how that output can look in practice:
 
 ![Model Usage Tracker Example](../../assets-github/tokens.png)
