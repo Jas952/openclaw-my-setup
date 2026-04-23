@@ -67,7 +67,6 @@ UI/scripts/**
 !UI/scripts/
 !UI/scripts/README.md
 
-assets-github/
 
 # Python / JS caches
 __pycache__/
