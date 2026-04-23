@@ -23,14 +23,7 @@ Telegram was one of the main ways I worked with the bot. The primary live intera
 
 Alongside that, I used dedicated topic branches for development, summaries, knowledge-base flows, usage statistics, trading scenarios, and research tasks.
 
-<table>
-  <tr>
-    <td>◉</td>
-    <td>◉</td>
-    <td>◉</td>
-    <td><strong>Telegram Workflow</strong></td>
-  </tr>
-</table>
+<img src="./assets-github/telegram-titlebar.svg" alt="Telegram Workflow title bar" />
 
 ```text
 Telegram
