@@ -95,12 +95,15 @@ This repository shows not only code, but also a concrete way of organizing a per
 Important: this repository does not include a significant part of the larger internal codebase and related work. If you want a fuller walkthrough or a demo of the closed parts, please contact me directly:
 
 <p>
-  <img src="./assets-github/n1.gif" alt="Project Demo" height="42" />
+  <img src="./assets-github/n1.gif" alt="Project Demo" height="48" align="left" />
+</p>
+<p>
   &nbsp;&nbsp;
   <img src="./assets-github/contacts/tg.jpg" alt="Telegram" height="16" />
   Telegram: @Jas952
   <br />
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  &nbsp;&nbsp;
   <img src="./assets-github/contacts/lnk.jpg" alt="LinkedIn" height="16" />
   LinkedIn: <a href="https://www.linkedin.com/in/jas952/">https://www.linkedin.com/in/jas952/</a>
 </p>
+<br clear="left" />
