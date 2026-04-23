@@ -94,22 +94,12 @@ This repository shows not only code, but also a concrete way of organizing a per
 
 Important: this repository does not include a significant part of the larger internal codebase and related work. If you want a fuller walkthrough or a demo of the closed parts, please contact me directly:
 
-#
-
 <p>
   <img src="./assets-github/n1.gif" alt="Project Demo" width="72" height="72" align="left" />
 </p>
-<p>
-  &nbsp;&nbsp;
-  <img src="./assets-github/contacts/tg.jpg" alt="Telegram" height="16" />
-  Telegram: <a href="https://t.me/Jas953/">https://t.me/Jas953/</a>
-  <br />
-  &nbsp;&nbsp;
-  <img src="./assets-github/contacts/lnk.jpg" alt="LinkedIn" height="16" />
-  LinkedIn: <a href="https://www.linkedin.com/in/jas952/">https://www.linkedin.com/in/jas952/</a>
-  <br />
-  &nbsp;&nbsp;
-  <img src="./assets-github/contacts/x.jpg" alt="X" height="16" />
-  X: <a href="https://x.com/not__jas">https://x.com/not__jas</a>
-</p>
+<pre>
+Telegram ······ <a href="https://t.me/Jas953/">t.me/Jas953</a>
+LinkedIn ······ <a href="https://www.linkedin.com/in/jas952/">linkedin.com/in/jas952</a>
+X        ······ <a href="https://x.com/not__jas">x.com/not__jas</a>
+</pre>
 <br clear="left" />
