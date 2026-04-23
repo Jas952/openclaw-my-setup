@@ -25,9 +25,7 @@ Alongside that, I used dedicated topic branches for development, summaries, know
 
 ```text
 ╭─ ○ ○ ○ ── Telegram Workflow ───────────────────────────╮
-```
-
-```text
+│                                                       │
 Telegram
 ├── Jas (direct messages)
 │   └── the main interaction loop with the bot: conversations, commands, manual tasks, and quick checks
@@ -49,6 +47,7 @@ Telegram
     ├── links              — quick links and connecting items
     ├── x-search           — search workflows over X/Twitter
     └── General            — shared channel/topic for the baseline structure
+╰───────────────────────────────────────────────────────╯
 ```
 
 Example Telegram channel structure:
