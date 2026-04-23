@@ -94,7 +94,7 @@ This repository shows not only code, but also a concrete way of organizing a per
 
 Important: this repository does not include a significant part of the larger internal codebase and related work. If you want a fuller walkthrough or a demo of the closed parts, please contact me directly:
 
----
+<sub>────────────────────────────────────────────────────────────────────────</sub>
 
 <p>
   <img src="./assets-github/n1.gif" alt="Project Demo" width="64" height="64" align="left" />
@@ -109,4 +109,3 @@ Important: this repository does not include a significant part of the larger int
   LinkedIn: <a href="https://www.linkedin.com/in/jas952/">https://www.linkedin.com/in/jas952/</a>
 </p>
 <br clear="left" />
-
