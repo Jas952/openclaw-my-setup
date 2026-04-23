@@ -90,19 +90,11 @@ Details for individual subsystems are split into dedicated README files so the p
 
 ## Summary
 
-<table>
-  <tr>
-    <td width="320" valign="top">
-      <img src="./assets/aishniy.gif" alt="Project Demo" width="300" />
-    </td>
-    <td valign="top">
-      <p>This repository shows not only code, but also a concrete way of organizing a personal agent environment around OpenClaw: how the interface was designed, how the bot was used in Telegram, and how real operational workflows were built around the agent.</p>
-      <p>Important: this repository does not include a significant part of the larger internal codebase and related work. If you want a fuller walkthrough or a demo of the closed parts, please contact me directly:
-</p>
-      <ul>
-        <li>Telegram: <code>@Jas952</code></li>
-        <li>LinkedIn: <a href="https://www.linkedin.com/in/jas952/">https://www.linkedin.com/in/jas952/</a></li>
-      </ul>
-    </td>
-  </tr>
-</table>
+This repository shows not only code, but also a concrete way of organizing a personal agent environment around OpenClaw: how the interface was designed, how the bot was used in Telegram, and how real operational workflows were built around the agent.
+
+Important: this repository does not include a significant part of the larger internal codebase and related work. If you want a fuller walkthrough or a demo of the closed parts, please contact me directly:
+
+<img src="./assets/aishniy.gif" alt="Project Demo" width="320" />
+
+- Telegram: @Jas952
+- LinkedIn: <https://www.linkedin.com/in/jas952/>
