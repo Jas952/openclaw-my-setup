@@ -93,7 +93,8 @@ Details for individual subsystems are split into dedicated README files so the p
 This repository shows not only code, but also a concrete way of organizing a personal agent environment around OpenClaw: how the interface was designed, how the bot was used in Telegram, and how real operational workflows were built around the agent.
 
 Important: this repository does not include a significant part of the larger internal codebase and related work. If you want a fuller walkthrough or a demo of the closed parts, please contact me directly:
-# 
+
+#
 
 <p>
   <img src="./assets-github/n1.gif" alt="Project Demo" width="64" height="64" align="left" />
