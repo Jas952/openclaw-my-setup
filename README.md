@@ -95,7 +95,7 @@ This repository shows not only code, but also a concrete way of organizing a per
 Important: this repository does not include a significant part of the larger internal codebase and related work. If you want a fuller walkthrough or a demo of the closed parts, please contact me directly:
 
 <p>
-  <img src="./assets-github/n1.gif" alt="Project Demo" width="92" height="92" align="left" hspace="12" />
+  <img src="./assets-github/n1.gif" alt="Project Demo" width="92" height="92" align="left"/>
 </p>
 <pre hspace="12">
   <img src="./assets-github/contacts/tg.jpg" alt="Telegram" height="14" /> Telegram ······ <a href="https://t.me/Jas953/">t.me/Jas953</a>
