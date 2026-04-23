@@ -97,7 +97,7 @@ Important: this repository does not include a significant part of the larger int
 #
 
 <p>
-  <img src="./assets-github/n1.gif" alt="Project Demo" width="64" height="64" align="left" />
+  <img src="./assets-github/n1.gif" alt="Project Demo" width="72" height="72" align="left" />
 </p>
 <p>
   &nbsp;&nbsp;
@@ -107,5 +107,9 @@ Important: this repository does not include a significant part of the larger int
   &nbsp;&nbsp;
   <img src="./assets-github/contacts/lnk.jpg" alt="LinkedIn" height="16" />
   LinkedIn: <a href="https://www.linkedin.com/in/jas952/">https://www.linkedin.com/in/jas952/</a>
+  <br />
+  &nbsp;&nbsp;
+  <img src="./assets-github/contacts/x.jpg" alt="X" height="16" />
+  X: <a href="https://x.com/not__jas">https://x.com/not__jas</a>
 </p>
 <br clear="left" />
