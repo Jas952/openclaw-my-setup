@@ -23,9 +23,16 @@ Telegram was one of the main ways I worked with the bot. The primary live intera
 
 Alongside that, I used dedicated topic branches for development, summaries, knowledge-base flows, usage statistics, trading scenarios, and research tasks.
 
+<table>
+  <tr>
+    <td>◉</td>
+    <td>◉</td>
+    <td>◉</td>
+    <td><strong>Telegram Workflow</strong></td>
+  </tr>
+</table>
+
 ```text
-╭─ ○ ○ ○ ── Telegram Workflow ───────────────────────────╮
-│                                                       │
 Telegram
 ├── Jas (direct messages)
 │   └── the main interaction loop with the bot: conversations, commands, manual tasks, and quick checks
@@ -47,7 +54,6 @@ Telegram
     ├── links              — quick links and connecting items
     ├── x-search           — search workflows over X/Twitter
     └── General            — shared channel/topic for the baseline structure
-╰───────────────────────────────────────────────────────╯
 ```
 
 Example Telegram channel structure:
