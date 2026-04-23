@@ -24,6 +24,10 @@ Telegram was one of the main ways I worked with the bot. The primary live intera
 Alongside that, I used dedicated topic branches for development, summaries, knowledge-base flows, usage statistics, trading scenarios, and research tasks.
 
 ```text
+╭─ ○ ○ ○ ── Telegram Workflow ───────────────────────────╮
+```
+
+```text
 Telegram
 ├── Jas (direct messages)
 │   └── the main interaction loop with the bot: conversations, commands, manual tasks, and quick checks
