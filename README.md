@@ -94,7 +94,14 @@ This repository shows not only code, but also a concrete way of organizing a per
 
 Important: this repository does not include a significant part of the larger internal codebase and related work. If you want a fuller walkthrough or a demo of the closed parts, please contact me directly:
 
-<img src="./assets/aishniy.gif" alt="Project Demo" width="320" />
-
-- Telegram: @Jas952
-- LinkedIn: <https://www.linkedin.com/in/jas952/>
+<table>
+  <tr>
+    <td valign="top">
+      <img src="./assets-github/n1.gif" alt="Project Demo" height="54" />
+    </td>
+    <td valign="top">
+      Telegram: @Jas952<br />
+      LinkedIn: <a href="https://www.linkedin.com/in/jas952/">https://www.linkedin.com/in/jas952/</a>
+    </td>
+  </tr>
+</table>
