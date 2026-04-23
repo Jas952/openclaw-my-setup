@@ -95,11 +95,11 @@ This repository shows not only code, but also a concrete way of organizing a per
 Important: this repository does not include a significant part of the larger internal codebase and related work. If you want a fuller walkthrough or a demo of the closed parts, please contact me directly:
 
 <p>
-  <img src="./assets-github/n1.gif" alt="Project Demo" width="88" height="88" align="left" />
+  <img src="./assets-github/n1.gif" alt="Project Demo" width="72" height="72" align="left" />
 </p>
-<p><code>
-<img src="./assets-github/contacts/tg.jpg" alt="Telegram" height="14" /> Telegram ······ <a href="https://t.me/Jas953/">t.me/Jas953</a><br />
-<img src="./assets-github/contacts/lnk.jpg" alt="LinkedIn" height="14" /> LinkedIn ······ <a href="https://www.linkedin.com/in/jas952/">linkedin.com/in/jas952</a><br />
-<img src="./assets-github/contacts/x.jpg" alt="X" height="14" /> X ············ <a href="https://x.com/not__jas">x.com/not__jas</a>
-</code></p>
+<pre>
+<img src="./assets-github/contacts/tg.jpg" alt="Telegram" height="14" /> Telegram ······ <a href="https://t.me/Jas953/">t.me/Jas953</a>
+<img src="./assets-github/contacts/lnk.jpg" alt="LinkedIn" height="14" /> LinkedIn ······ <a href="https://www.linkedin.com/in/jas952/">linkedin.com/in/jas952</a>
+<img src="./assets-github/contacts/x.jpg" alt="X" height="14" /> X        ······ <a href="https://x.com/not__jas">x.com/not__jas</a>
+</pre>
 <br clear="left" />
